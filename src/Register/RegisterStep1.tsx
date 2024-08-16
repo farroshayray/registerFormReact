@@ -74,7 +74,7 @@ const RegisterStep1: React.FC<Step1Props> = ({ formik, onNext }) => {
           <div style={{ color: "red" }}>{errors.birth}</div>
           )}
         </div>
-        <button type="submit" className="mt-4 w-full py-2 px-4 bg-indigo-600 text-white rounded-md" onClick={handleNext}>
+        <button type="submit" className="mt-4 w-full py-2 px-4 bg-indigo-600 text-white rounded-md hover:bg-indigo-700" onClick={handleNext}>
           Next
         </button>
       </form>

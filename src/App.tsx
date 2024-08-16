@@ -10,6 +10,7 @@ import RegisterBtn from "./RegisterBtn";
 import RegisterStep1 from "./Register/RegisterStep1";
 import RegisterStep2 from "./Register/RegisterStep2";
 import RegisterStep3 from "./Register/RegisterStep3";
+import { FinishRegister } from "./Register/FinishRegister";
 // import { FormValues } from "./Register/RegisterForm";
 
 // Import validation schemas
@@ -34,6 +35,7 @@ function App() {
   const name = "SpaceBin";
   const [showLogin, setShowLogin] = useState(true);
   const [showRegister, setShowRegister] = useState(true);
+  const [showGreetings, setShowGreetings] = useState(true);
   const [step, setStep] = useState(0);
 
   const initialValues: FormValues = {
@@ -52,6 +54,7 @@ function App() {
   const handleRegisterClick = () => {
     setShowLogin(false);
     setShowRegister(false);
+    setShowGreetings(false);
     setStep(1);
   };
 
@@ -67,6 +70,7 @@ function App() {
   const handleSubmit = (values: FormValues, actions: FormikHelpers<FormValues>) => {
     if (step === 3) {
       // Final step, submit form
+      setStep(step + 1);
       console.log("Form submitted:", values);
       actions.setSubmitting(false);
     } else {
@@ -81,7 +85,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <GreetingRevou name={name}/>
+      {showGreetings && <GreetingRevou name={name}/>}
       
       {showLogin && <Login />}
       {showRegister && <RegisterBtn onRegisterClick={handleRegisterClick} />}
@@ -96,6 +100,7 @@ function App() {
               {step === 1 && <RegisterStep1 formik={formik} onNext={handleNext} />}
               {step === 2 && <RegisterStep2 formik={formik} onNext={handleNext} onBack={handleBack} />}
               {step === 3 && <RegisterStep3 formik={formik} onBack={handleBack} onSubmit={handleSubmit}/>}
+              {step ===4 && <FinishRegister />}
             </>
           )}
         </Formik>

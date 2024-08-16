@@ -75,10 +75,10 @@ const RegisterStep3: React.FC<Step3Props> = ({ formik, onBack, onSubmit }) => {
         )}
         </div>
         <div className="flex justify-between">
-          <button type="button" className="mt-4 py-2 px-4 bg-red-600 text-white rounded-md" onClick={onBack}>
+          <button type="button" className="mt-4 py-2 px-4 bg-red-600 text-white rounded-md hover:bg-red-700" onClick={onBack}>
             Back
           </button>
-          <button type="submit" className="mt-4 py-2 px-4 bg-indigo-600 text-white rounded-md" onClick={handleSubmit}>
+          <button type="submit" className="mt-4 py-2 px-4 bg-lime-600 text-white rounded-md hover:bg-lime-700" onClick={handleSubmit}>
             Submit
           </button>
         </div>
