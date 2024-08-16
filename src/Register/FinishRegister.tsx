@@ -5,7 +5,7 @@ import App from '../App';
 export const FinishRegister = () => {
   return (
     <div className='flex flex-col justify-center max-w-fit mx-auto '>
-        <div className='bg-white rounded-md h-56 flex flex-col justify-center shadow-md'>
+        <div className='bg-white rounded-md h-56 flex flex-col justify-center shadow-md mt-28'>
             <h1 className='text-center mx-3'>Thank You !</h1>
             <p className='text-center mx-10'>You have finished your registration</p>
             <small className='text-center mx-10'>Please Re-Login to your account</small>
