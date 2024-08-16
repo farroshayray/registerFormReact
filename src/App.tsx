@@ -11,13 +11,13 @@ import RegisterStep1 from "./Register/RegisterStep1";
 import RegisterStep2 from "./Register/RegisterStep2";
 import RegisterStep3 from "./Register/RegisterStep3";
 import { FinishRegister } from "./Register/FinishRegister";
-// import { FormValues } from "./Register/RegisterForm";
 
 // Import validation schemas
 import { validationSchemaStep1 } from "./Register/validationSchemaStep1";
 import { validationSchemaStep2 } from "./Register/validationSchemaStep2";
 import { validationSchemaStep3 } from "./Register/validationSchemaStep3";
 
+// Interface FormValues
 export interface FormValues {
     fullName: string;
     email: string;
@@ -31,6 +31,7 @@ export interface FormValues {
     rePassword: string;
   }
 
+  //the App Component
 function App() {
   const name = "SpaceBin";
   const [showLogin, setShowLogin] = useState(true);
@@ -38,6 +39,7 @@ function App() {
   const [showGreetings, setShowGreetings] = useState(true);
   const [step, setStep] = useState(0);
 
+  // state initial values for Data
   const initialValues: FormValues = {
     fullName: "",
     email: "",
@@ -51,6 +53,7 @@ function App() {
     rePassword: "",
   };
 
+  //button handler
   const handleRegisterClick = () => {
     setShowLogin(false);
     setShowRegister(false);
@@ -100,7 +103,7 @@ function App() {
               {step === 1 && <RegisterStep1 formik={formik} onNext={handleNext} />}
               {step === 2 && <RegisterStep2 formik={formik} onNext={handleNext} onBack={handleBack} />}
               {step === 3 && <RegisterStep3 formik={formik} onBack={handleBack} onSubmit={handleSubmit}/>}
-              {step ===4 && <FinishRegister />}
+              {step === 4 && <FinishRegister />}
             </>
           )}
         </Formik>
@@ -109,5 +112,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
